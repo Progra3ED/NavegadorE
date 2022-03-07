@@ -21,10 +21,11 @@ namespace NavegadorE
         }
 
         private void CargarComboBox()
-        {
-            //Limpiar el combobox
+        {            
+            //Limpiar el combobox            
             comboBoxUrls.DataSource = null;
             comboBoxUrls.Refresh();
+
             //Como nuestra clase tiene varias propiedades, le debemos indicar
             //al combobox cual de las propiedades tiene que mostrar
             comboBoxUrls.DisplayMember = "url";
@@ -33,16 +34,17 @@ namespace NavegadorE
             comboBoxUrls.Refresh();
             
         }
-        private void Guardar(string fileName, string texto)
+        private void Guardar(string fileName)
         {            
             FileStream stream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);            
             StreamWriter writer = new StreamWriter(stream);
-            //Hay que recorrer la lista para ir guardando cada elemento de la lista
-            foreach (var url in URLs)
-            {
-                writer.WriteLine(url.url);
-                writer.WriteLine(url.veces);
-                writer.WriteLine(url.fecha);
+            //Hay que recorrer la lista para ir guardando cada elemento de la lista            
+
+            foreach (var u in URLs)
+            {                                
+                writer.WriteLine(u.url);
+                writer.WriteLine(u.veces);
+                writer.WriteLine(u.fecha);
             }            
             writer.Close();
         }
@@ -55,13 +57,13 @@ namespace NavegadorE
             while (reader.Peek() > -1)
             {
                 //lo leido del archivo lo cargamos a una url temporal
-                URL url = new URL();
-                url.url = reader.ReadLine();
-                url.veces = Convert.ToInt32(reader.ReadLine());
-                url.fecha = Convert.ToDateTime(reader.ReadLine());
+                URL urltemp = new URL();
+                urltemp.url = reader.ReadLine();
+                urltemp.veces = Convert.ToInt32(reader.ReadLine());
+                urltemp.fecha = Convert.ToDateTime(reader.ReadLine());
 
                 //la url temporal la guardamos en la lista
-                URLs.Add(url);
+                URLs.Add(urltemp);
 
             }
 
@@ -106,7 +108,7 @@ namespace NavegadorE
                 URLs[posicion].fecha = DateTime.Now;
             }
                         
-            Guardar("Historial.txt", uri);
+            Guardar("Historial.txt");
             CargarComboBox();
            
         }
