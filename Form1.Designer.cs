@@ -34,10 +34,12 @@
             this.atrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otraOpcionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBoxUrls = new System.Windows.Forms.ComboBox();
             this.buttonIr = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.otraOpcionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porFechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porVisitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +93,15 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // otraOpcionToolStripMenuItem
+            // 
+            this.otraOpcionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.porFechaToolStripMenuItem,
+            this.porVisitasToolStripMenuItem});
+            this.otraOpcionToolStripMenuItem.Name = "otraOpcionToolStripMenuItem";
+            this.otraOpcionToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.otraOpcionToolStripMenuItem.Text = "Ordenar";
+            // 
             // comboBoxUrls
             // 
             this.comboBoxUrls.FormattingEnabled = true;
@@ -117,11 +128,19 @@
             this.webBrowser1.Size = new System.Drawing.Size(1104, 475);
             this.webBrowser1.TabIndex = 3;
             // 
-            // otraOpcionToolStripMenuItem
+            // porFechaToolStripMenuItem
             // 
-            this.otraOpcionToolStripMenuItem.Name = "otraOpcionToolStripMenuItem";
-            this.otraOpcionToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.otraOpcionToolStripMenuItem.Text = "Otra Opcion";
+            this.porFechaToolStripMenuItem.Name = "porFechaToolStripMenuItem";
+            this.porFechaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porFechaToolStripMenuItem.Text = "Por fecha";
+            this.porFechaToolStripMenuItem.Click += new System.EventHandler(this.porFechaToolStripMenuItem_Click);
+            // 
+            // porVisitasToolStripMenuItem
+            // 
+            this.porVisitasToolStripMenuItem.Name = "porVisitasToolStripMenuItem";
+            this.porVisitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porVisitasToolStripMenuItem.Text = "Por visitas";
+            this.porVisitasToolStripMenuItem.Click += new System.EventHandler(this.porVisitasToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -155,6 +174,8 @@
         private System.Windows.Forms.Button buttonIr;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripMenuItem otraOpcionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porFechaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porVisitasToolStripMenuItem;
     }
 }
 
